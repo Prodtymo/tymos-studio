@@ -14,6 +14,18 @@ type Testimonial = {
 
 const TESTIMONIALS: Testimonial[] = [
   {
+    name: "Marek Baňárek",
+    rating: 5,
+    relative: { sk: "pred 48 minútami", en: "48 minutes ago" },
+    quote: { sk: "Bombasticky, chalani boli pohodoví, veľmi sa mi tam páčilo, moc odporúčam.", en: "Awesome vibe, the guys were super chill, I loved it there — highly recommend." },
+  },
+  {
+    name: "Klara Zakova",
+    rating: 5,
+    relative: { sk: "pred 24 minútami", en: "24 minutes ago" },
+    quote: { sk: "Príjemné prostredie a naozaj skvelý prístup, odporúčam aj bez skúseností s nahrávaním.", en: "Pleasant space and a genuinely great approach — I'd recommend it even without recording experience." },
+  },
+  {
     name: "jayden tii",
     rating: 5,
     relative: { sk: "pred 21 hodinami", en: "21 hours ago" },
