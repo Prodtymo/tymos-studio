@@ -3,6 +3,8 @@ import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { useT, type Lang } from "../lib/i18n";
 
+const GOOGLE_REVIEW_URL = "https://g.page/r/CR-OathU8KHLEAE/review";
+
 type Testimonial = {
   name: string;
   rating: number;
@@ -79,6 +81,15 @@ export function Reviews() {
           <h2 className="font-display text-balance text-3xl font-bold tracking-tight text-ink sm:text-[2.75rem]">
             {t("reviews_title")}
           </h2>
+          <a
+            href={GOOGLE_REVIEW_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-5 py-2.5 text-[13px] font-semibold text-accent-soft transition-colors duration-200 hover:bg-accent/15"
+          >
+            <Star className="h-3.5 w-3.5 fill-accent-soft" />
+            {t("reviews_cta")}
+          </a>
         </Reveal>
 
         <Reveal delay={0.08} className="relative mt-14">

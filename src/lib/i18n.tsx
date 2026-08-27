@@ -85,6 +85,7 @@ export const translations: Record<Lang, Dict> = {
     booking_desc: "Vyber si čas, ktorý ti vyhovuje. Potvrdenie príde okamžite do e-mailu.",
 
     reviews_title: "Čo hovoria klienti",
+    reviews_cta: "Nechaj nám recenziu na Google",
 
     beats_title: "Beaty & vydania",
     beats_desc: "Tymo si popri tom robí aj vlastné beaty. Mrkni na najnovšie drops, alebo si zapni notifikácie, keď vyjde nový pack.",
@@ -194,6 +195,7 @@ export const translations: Record<Lang, Dict> = {
     booking_desc: "Pick a time that works for you. Confirmation lands in your inbox instantly.",
 
     reviews_title: "What clients say",
+    reviews_cta: "Leave us a review on Google",
 
     beats_title: "Beats & Releases",
     beats_desc: "Tymo also produces original beats. Check the latest drops or get notified when new packs release.",
