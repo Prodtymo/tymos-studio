@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Reveal } from "./Reveal";
 import { useT } from "../lib/i18n";
+import { cn } from "../lib/utils";
 
 type Track = {
   title: string;
@@ -65,6 +67,14 @@ function TrackCard({ tr }: { tr: Track }) {
 
 export function Music() {
   const { t } = useT();
+  // Once the visitor manually scrolls the strip (touch, drag, or trackpad),
+  // the ambient auto-scroll stops for good so it doesn't fight their input --
+  // it becomes a normal scrollable row instead of an uncontrollable marquee.
+  const [paused, setPaused] = useState(false);
+  const pauseMarquee = () => setPaused(true);
+  const handleWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) pauseMarquee();
+  };
 
   return (
     <section id="music" className="border-t border-border py-24 sm:py-32">
@@ -77,14 +87,29 @@ export function Music() {
         </Reveal>
       </div>
 
-      <Reveal delay={0.08} className="group/marquee relative mt-12 overflow-hidden">
+      <Reveal delay={0.08} className="group/marquee relative mt-12">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-bg to-transparent sm:w-24" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-bg to-transparent sm:w-24" />
 
-        <div className="flex w-max animate-marquee gap-5 group-hover/marquee:[animation-play-state:paused] group-focus-within/marquee:[animation-play-state:paused] motion-reduce:animate-none">
-          {LOOPED_TRACKS.map((tr, i) => (
-            <TrackCard key={`${tr.title}-${i}`} tr={tr} />
-          ))}
+        <div
+          className="no-scrollbar overflow-x-auto"
+          onPointerDown={pauseMarquee}
+          onWheel={handleWheel}
+        >
+          <div
+            className={cn(
+              "flex w-max animate-marquee gap-5 motion-reduce:animate-none",
+              "group-hover/marquee:[animation-play-state:paused] group-focus-within/marquee:[animation-play-state:paused]",
+              // Freeze in place (don't remove the animation class) once the visitor
+              // manually scrolls -- removing it would snap the strip back to its
+              // translateX(0) start instead of leaving it where they left it.
+              paused && "[animation-play-state:paused]"
+            )}
+          >
+            {LOOPED_TRACKS.map((tr, i) => (
+              <TrackCard key={`${tr.title}-${i}`} tr={tr} />
+            ))}
+          </div>
         </div>
       </Reveal>
     </section>
