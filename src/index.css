@@ -1,0 +1,185 @@
+@import "tailwindcss";
+
+/* Switzer, self-hosted (Fontshare / Indian Type Foundry, free for personal
+   and commercial use). Only the weights actually used on the site are
+   included to keep the font payload small. */
+@font-face {
+  font-family: "Switzer";
+  src: url("/fonts/switzer/switzer-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Switzer";
+  src: url("/fonts/switzer/switzer-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Switzer";
+  src: url("/fonts/switzer/switzer-600.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Switzer";
+  src: url("/fonts/switzer/switzer-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Switzer";
+  src: url("/fonts/switzer/switzer-800.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Switzer", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+  --font-display: "Switzer", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Switzer", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --color-bg: #08080b;
+  --color-surface: #0f0f14;
+  --color-surface-2: #16161d;
+  --color-surface-3: #1d1d26;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.14);
+
+  --color-ink: #f5f5f7;
+  --color-ink-dim: #a4a4b0;
+  /* Lightened from #6c6c78: that value measured ~3.8:1 on dark surfaces,
+     under the 4.5:1 AA floor for the meta/secondary text it's used for
+     (timestamps, tier notes, footer copy). This clears ~4.7-4.9:1 while
+     keeping the same cool violet-gray hue. */
+  --color-ink-faint: #7d7d8a;
+
+  --color-accent: #7c5cff;
+  /* Darker step of the accent hue, for solid fills carrying white text
+     (buttons, active toggles, the "Most Popular" badge). White on the
+     base --color-accent measures ~4.3:1, just under the 4.5:1 AA floor;
+     white on this shade clears ~6.2:1. Keep --color-accent itself for
+     borders, soft text, and glows, which don't have this constraint. */
+  --color-accent-2: #5b3df0;
+  --color-accent-soft: #a58bff;
+  --color-accent-glow: rgba(124, 92, 255, 0.35);
+  /* Named ring/highlight colors pulled out of component-level shadow
+     literals so they're one token each instead of a repeated rgba(). */
+  --color-accent-ring: rgba(124, 92, 255, 0.12);
+  --color-ring-highlight: rgba(255, 255, 255, 0.08);
+
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background: var(--color-bg);
+  }
+
+  body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: white;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+
+  button:not(:disabled) {
+    cursor: pointer;
+  }
+  button:disabled {
+    cursor: not-allowed;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid var(--color-accent-soft);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  /* Looping/decorative animations (the marquee, entrance keyframes) are the
+     vestibular-triggering kind reduced-motion exists for -- kill those
+     outright. Transitions (hover colors, the FAQ accordion, nav backdrop
+     blur) are short state-change feedback, not continuous motion; forcing
+     those to 0.001ms too made them fire faster than the eye can register,
+     effectively removing hover/focus feedback for reduced-motion users
+     instead of just toning down movement. Keep them, just quicker. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+    scroll-behavior: auto !important;
+  }
+}
