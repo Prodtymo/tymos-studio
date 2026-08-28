@@ -109,7 +109,11 @@ export const onRequestPost = async (context: { request: Request; env: Env }): Pr
   });
 
   if (!telegramRes.ok) {
-    return json({ ok: false, error: "telegram_failed" }, 502);
+    // Surface Telegram's own error description (e.g. "chat not found",
+    // "Unauthorized") to make misconfiguration easy to diagnose — this is
+    // Telegram's rejection reason, never the token or chat id themselves.
+    const telegramError = await telegramRes.text().catch(() => "");
+    return json({ ok: false, error: "telegram_failed", detail: telegramError }, 502);
   }
 
   return json({ ok: true });
