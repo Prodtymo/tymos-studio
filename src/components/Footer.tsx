@@ -59,11 +59,11 @@ export function Footer() {
             </h4>
             <div className="mt-3 flex flex-col gap-2">
               <a
-                href="mailto:tymofx@gmail.com"
+                href="mailto:info@tymostudio.com"
                 className="inline-flex items-center gap-2 text-[13px] text-ink-dim transition-colors duration-200 hover:text-accent-soft"
               >
                 <Mail className="h-3.5 w-3.5" />
-                tymofx@gmail.com
+                info@tymostudio.com
               </a>
               <a
                 href="tel:+421948766026"

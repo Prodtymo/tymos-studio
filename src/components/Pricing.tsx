@@ -57,7 +57,7 @@ export function Pricing() {
       key: "custom",
       price: t("tier_custom_price"),
       features: [t("tier_custom_f1"), t("tier_custom_f2")],
-      ctaHref: "mailto:tymofx@gmail.com?subject=Project%20inquiry",
+      ctaHref: "mailto:inquiry@tymostudio.com?subject=Project%20inquiry",
       ctaLabel: t("tier_custom_cta"),
     },
   ];

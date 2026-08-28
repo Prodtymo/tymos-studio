@@ -223,7 +223,7 @@ export function ServiceRequest({ service }: { service: Service }) {
       `Files: ${fileLink}`,
       notes ? `Notes: ${notes}` : null,
     ].filter((line): line is string => Boolean(line));
-    return `mailto:tymofx@gmail.com?subject=${subject}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+    return `mailto:inquiry@tymostudio.com?subject=${subject}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
   };
 
   const handleSubmit = async (e: FormEvent) => {
