@@ -1,4 +1,5 @@
 import { Check } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Reveal } from "./Reveal";
 import { useT } from "../lib/i18n";
 import { cn } from "../lib/utils";
@@ -23,7 +24,7 @@ export function Pricing() {
       price: "€100",
       features: [t("tier_mixing_f1"), t("tier_mixing_f2"), t("tier_mixing_f3")],
       notes: [t("tier_mixing_note")],
-      ctaHref: "mailto:tymofx@gmail.com?subject=Mixing%20inquiry",
+      ctaHref: "/mixing",
       ctaLabel: t("tier_mixing_cta"),
     },
     {
@@ -31,7 +32,7 @@ export function Pricing() {
       price: "€100",
       features: [t("tier_mastering_f1"), t("tier_mastering_f2"), t("tier_mastering_f3")],
       notes: [t("tier_mastering_note")],
-      ctaHref: "mailto:tymofx@gmail.com?subject=Mastering%20inquiry",
+      ctaHref: "/mastering",
       ctaLabel: t("tier_mastering_cta"),
     },
   ];
@@ -106,17 +107,23 @@ export function Pricing() {
           </div>
         )}
 
-        <a
-          href={tier.ctaHref ?? "#booking"}
-          className={cn(
+        {(() => {
+          const href = tier.ctaHref ?? "#booking";
+          const label = tier.ctaLabel ?? `${t("pricing_book")} ${t(`tier_${tier.key}_name`)}`;
+          const ctaClassName = cn(
             "mt-7 rounded-full px-4 py-2.5 text-center text-[13px] font-semibold transition-transform duration-200 active:scale-[0.97]",
-            tier.featured
-              ? "bg-accent-2 text-white"
-              : "border border-border-strong text-ink hover:bg-white/5"
-          )}
-        >
-          {tier.ctaLabel ?? `${t("pricing_book")} ${t(`tier_${tier.key}_name`)}`}
-        </a>
+            tier.featured ? "bg-accent-2 text-white" : "border border-border-strong text-ink hover:bg-white/5"
+          );
+          return href.startsWith("/") ? (
+            <Link to={href} className={ctaClassName}>
+              {label}
+            </Link>
+          ) : (
+            <a href={href} className={ctaClassName}>
+              {label}
+            </a>
+          );
+        })()}
       </div>
     </Reveal>
   );
@@ -136,20 +143,20 @@ export function Pricing() {
 
         <Reveal delay={0.05} className="mt-14">
           <span className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-ink-faint">
-            {t("pricing_section_services")}
-          </span>
-        </Reveal>
-        <div className="no-scrollbar mt-5 -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 pt-4 sm:mx-0 sm:px-0 lg:grid lg:mx-auto lg:max-w-2xl lg:grid-cols-2 lg:overflow-visible lg:pb-0 lg:pt-0">
-          {serviceTiers.map((tier, i) => renderTier(tier, i))}
-        </div>
-
-        <Reveal delay={0.05} className="mt-16">
-          <span className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-ink-faint">
             {t("pricing_section_packages")}
           </span>
         </Reveal>
         <div className="no-scrollbar mt-5 -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 pt-4 sm:mx-0 sm:px-0 lg:grid lg:grid-cols-5 lg:overflow-visible lg:pb-0 lg:pt-0">
           {packageTiers.map((tier, i) => renderTier(tier, i))}
+        </div>
+
+        <Reveal delay={0.05} className="mt-16">
+          <span className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-ink-faint">
+            {t("pricing_section_services")}
+          </span>
+        </Reveal>
+        <div className="no-scrollbar mt-5 -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 pt-4 sm:mx-0 sm:px-0 lg:grid lg:mx-auto lg:max-w-2xl lg:grid-cols-2 lg:overflow-visible lg:pb-0 lg:pt-0">
+          {serviceTiers.map((tier, i) => renderTier(tier, i))}
         </div>
 
         <Reveal delay={0.2} className="mx-auto mt-14 max-w-2xl space-y-2 text-center text-[13px] leading-relaxed text-ink-faint">

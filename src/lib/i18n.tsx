@@ -61,7 +61,7 @@ export const translations: Record<Lang, Dict> = {
     tier_mixing_f2: "Kompletný mix",
     tier_mixing_f3: "2 kolá revízií v cene",
     tier_mixing_note: "50 % záloha pri objednávke, zvyšok po odovzdaní.",
-    tier_mixing_cta: "Kontaktovať",
+    tier_mixing_cta: "Objednať",
 
     tier_mastering_name: "Mastering",
     tier_mastering_tag: "Mastering na diaľku",
@@ -69,7 +69,7 @@ export const translations: Record<Lang, Dict> = {
     tier_mastering_f2: "Finálny master",
     tier_mastering_f3: "2 kolá revízií v cene",
     tier_mastering_note: "50 % záloha pri objednávke, zvyšok po odovzdaní.",
-    tier_mastering_cta: "Kontaktovať",
+    tier_mastering_cta: "Objednať",
 
     tier_basic_name: "Basic",
     tier_basic_tag: "Hodinová session",
@@ -192,7 +192,7 @@ export const translations: Record<Lang, Dict> = {
     tier_mixing_f2: "Full mix",
     tier_mixing_f3: "2 rounds of revisions included",
     tier_mixing_note: "50% deposit to order, remainder on delivery.",
-    tier_mixing_cta: "Contact",
+    tier_mixing_cta: "Get Started",
 
     tier_mastering_name: "Mastering",
     tier_mastering_tag: "Remote mastering",
@@ -200,7 +200,7 @@ export const translations: Record<Lang, Dict> = {
     tier_mastering_f2: "Final master",
     tier_mastering_f3: "2 rounds of revisions included",
     tier_mastering_note: "50% deposit to order, remainder on delivery.",
-    tier_mastering_cta: "Contact",
+    tier_mastering_cta: "Get Started",
 
     tier_basic_name: "Basic",
     tier_basic_tag: "Hourly Session",
