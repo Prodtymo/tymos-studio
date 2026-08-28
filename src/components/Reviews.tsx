@@ -50,10 +50,13 @@ const TESTIMONIALS: Testimonial[] = [
     quote: { sk: "Sak moje tracky o tom svedčia", en: "My tracks speak for themselves" },
   },
   {
-    name: "Rišis",
+    name: "Damian",
     rating: 5,
-    relative: { sk: "pred 6 dňami", en: "6 days ago" },
-    quote: { sk: "Odporúčam každému, kto to myslí vážne.", en: "Recommend it to anyone who's serious about their sound." },
+    relative: { sk: "pred 19 hodinami", en: "19 hours ago" },
+    quote: {
+      sk: "Strašný zvuk 🙏 kapitánstvo úplne pri nahrávaní, stále fresh veci, nové spôsoby recordu jeden od druhého, nápady strieľajú jak rotačák, energia tam srší jak v universe. 🪬",
+      en: "Insane sound 🙏 total command of the room while recording, always fresh stuff, new ways of recording one after another, ideas shooting out like a pinwheel — the energy in there sparks like the universe. 🪬",
+    },
   },
 ];
 

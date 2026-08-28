@@ -3,7 +3,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { useT } from "../lib/i18n";
 
+// Atmosphere/gear shots (no guests) lead the strip, ahead of the guest session photos.
 const PHOTOS = [
+  "atmosphere-1",
+  "atmosphere-2",
+  "atmosphere-3",
+  "atmosphere-4",
   "session-1",
   "session-2",
   "session-3",
@@ -71,7 +76,11 @@ export function Gallery() {
             >
               <img
                 src={`/images/gallery/${p}.jpg`}
-                alt={`Session at Tymo's Studio, photo ${i + 1}`}
+                alt={
+                  p.startsWith("atmosphere")
+                    ? `Inside Tymo's Studio, photo ${i + 1}`
+                    : `Session at Tymo's Studio, photo ${i + 1}`
+                }
                 loading="lazy"
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 hover:scale-[1.04]"
               />

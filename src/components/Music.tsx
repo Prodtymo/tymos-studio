@@ -20,6 +20,7 @@ const TRACKS: Track[] = [
   { title: "Som Fajn RMX", artists: "Maty Drion, dayindegenerate", tagKey: "music_tag_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b27345fbbe41678b1b016e67dc63", link: "https://open.spotify.com/track/0N6Rb1NXENsLCAml3k5ZeN" },
   { title: "LAVIDA", artists: "Maty Drion", tagKey: "music_tag_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b27383ebcb660949f86158dad9f6", link: "https://open.spotify.com/track/0iMr506UWnARkTtln1g2Rq" },
   { title: "Vienna", artists: "Maty Drion", tagKey: "music_tag_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b2738bf0ebdda8f59d54cb25b822", link: "https://open.spotify.com/track/5862aLbteM9btpkt9XbP1D" },
+  { title: "Nech To Tak", artists: "Maty Drion feat. Miku", tagKey: "music_tag_recorded_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b27365d5d98e6ebb2d34a1bea9c0", link: "https://open.spotify.com/track/7Bm0gWC8PWFergyK4irq7x" },
 ];
 
 // Duplicated once so the CSS marquee (translateX 0 -> -50%) loops seamlessly.
