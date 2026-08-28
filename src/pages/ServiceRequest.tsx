@@ -19,6 +19,8 @@ type Content = {
     namePlaceholder: string;
     email: string;
     emailPlaceholder: string;
+    phone: string;
+    phonePlaceholder: string;
     track: string;
     trackPlaceholder: string;
     fileLink: string;
@@ -51,6 +53,8 @@ const CONTENT: Record<Service, Record<Lang, Content>> = {
         namePlaceholder: "Tvoje meno",
         email: "E-mail",
         emailPlaceholder: "tvoj@email.com",
+        phone: "Telefón (nepovinné)",
+        phonePlaceholder: "+421 900 000 000",
         track: "Názov skladby / projektu",
         trackPlaceholder: "napr. Nech To Tak",
         fileLink: "Odkaz na nahrávku (WeTransfer, Google Drive, Dropbox...)",
@@ -86,6 +90,8 @@ const CONTENT: Record<Service, Record<Lang, Content>> = {
         namePlaceholder: "Your name",
         email: "Email",
         emailPlaceholder: "you@email.com",
+        phone: "Phone (optional)",
+        phonePlaceholder: "+1 555 000 0000",
         track: "Track / project name",
         trackPlaceholder: "e.g. Nech To Tak",
         fileLink: "Link to your recording (WeTransfer, Google Drive, Dropbox...)",
@@ -123,6 +129,8 @@ const CONTENT: Record<Service, Record<Lang, Content>> = {
         namePlaceholder: "Tvoje meno",
         email: "E-mail",
         emailPlaceholder: "tvoj@email.com",
+        phone: "Telefón (nepovinné)",
+        phonePlaceholder: "+421 900 000 000",
         track: "Názov skladby / projektu",
         trackPlaceholder: "napr. Nech To Tak",
         fileLink: "Odkaz na hotový mix (WeTransfer, Google Drive, Dropbox...)",
@@ -158,6 +166,8 @@ const CONTENT: Record<Service, Record<Lang, Content>> = {
         namePlaceholder: "Your name",
         email: "Email",
         emailPlaceholder: "you@email.com",
+        phone: "Phone (optional)",
+        phonePlaceholder: "+1 555 000 0000",
         track: "Track / project name",
         trackPlaceholder: "e.g. Nech To Tak",
         fileLink: "Link to your finished mix (WeTransfer, Google Drive, Dropbox...)",
@@ -191,6 +201,7 @@ export function ServiceRequest({ service }: { service: Service }) {
   const [status, setStatus] = useState<Status>("idle");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [track, setTrack] = useState("");
   const [fileLink, setFileLink] = useState("");
   const [notes, setNotes] = useState("");
@@ -207,6 +218,7 @@ export function ServiceRequest({ service }: { service: Service }) {
     const bodyLines = [
       `Name: ${name}`,
       `Email: ${email}`,
+      phone ? `Phone: ${phone}` : null,
       track ? `Track: ${track}` : null,
       `Files: ${fileLink}`,
       notes ? `Notes: ${notes}` : null,
@@ -221,7 +233,7 @@ export function ServiceRequest({ service }: { service: Service }) {
       const res = await fetch("/api/request", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ service, name, email, trackTitle: track, fileLink, notes, website }),
+        body: JSON.stringify({ service, name, email, phone, trackTitle: track, fileLink, notes, website }),
       });
       const data = (await res.json().catch(() => null)) as { ok?: boolean } | null;
       if (!res.ok || !data?.ok) throw new Error("request_failed");
@@ -292,6 +304,17 @@ export function ServiceRequest({ service }: { service: Service }) {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={c.form.emailPlaceholder}
+                className={inputClass}
+              />
+            </div>
+
+            <div>
+              <label className={labelClass}>{c.form.phone}</label>
+              <input
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder={c.form.phonePlaceholder}
                 className={inputClass}
               />
             </div>

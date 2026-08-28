@@ -19,6 +19,7 @@ interface RequestPayload {
   service?: unknown;
   name?: unknown;
   email?: unknown;
+  phone?: unknown;
   trackTitle?: unknown;
   fileLink?: unknown;
   notes?: unknown;
@@ -28,6 +29,7 @@ interface RequestPayload {
 const MAX_LENGTHS = {
   name: 200,
   email: 200,
+  phone: 40,
   trackTitle: 200,
   fileLink: 500,
   notes: 2000,
@@ -63,6 +65,7 @@ export const onRequestPost = async (context: { request: Request; env: Env }): Pr
   const service = body.service === "mastering" ? "mastering" : body.service === "mixing" ? "mixing" : null;
   const name = asTrimmedString(body.name);
   const email = asTrimmedString(body.email);
+  const phone = asTrimmedString(body.phone);
   const trackTitle = asTrimmedString(body.trackTitle);
   const fileLink = asTrimmedString(body.fileLink);
   const notes = asTrimmedString(body.notes);
@@ -73,6 +76,7 @@ export const onRequestPost = async (context: { request: Request; env: Env }): Pr
   if (
     name.length > MAX_LENGTHS.name ||
     email.length > MAX_LENGTHS.email ||
+    phone.length > MAX_LENGTHS.phone ||
     trackTitle.length > MAX_LENGTHS.trackTitle ||
     fileLink.length > MAX_LENGTHS.fileLink ||
     notes.length > MAX_LENGTHS.notes
@@ -93,6 +97,7 @@ export const onRequestPost = async (context: { request: Request; env: Env }): Pr
     "",
     `Name: ${name}`,
     `Email: ${email}`,
+    phone ? `Phone: ${phone}` : null,
     trackTitle ? `Track: ${trackTitle}` : null,
     `Files: ${fileLink}`,
     notes ? `Notes: ${notes}` : null,
