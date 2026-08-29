@@ -76,7 +76,7 @@ export const translations: Record<Lang, Dict> = {
     pricing_desc: "Od jednotlivých služieb až po celé projekty. Vyber si, čo ti sedí.",
     pricing_section_services: "Vzdialené služby",
     pricing_section_packages: "Štúdiové balíčky",
-    pricing_popular: "Najväčšia hodnota",
+    pricing_popular: "Najvýhodnejšie",
     pricing_book: "Rezervovať",
     pricing_policy_1: "Každá skladba má v cene 2 kolá revízií, ďalšie si vieš kedykoľvek dokúpiť.",
     pricing_policy_2: "Pri One-Stop balíčku platíš 50 % zálohu pri rezervácii, zvyšok pri finálnom dodaní mixu a masteru.",
