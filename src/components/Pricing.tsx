@@ -21,7 +21,7 @@ export function Pricing() {
   const serviceTiers: Tier[] = [
     {
       key: "mixing",
-      price: "€100",
+      price: "€99",
       features: [t("tier_mixing_f1"), t("tier_mixing_f2"), t("tier_mixing_f3")],
       notes: [t("tier_mixing_note")],
       ctaHref: "/mixing",
@@ -29,7 +29,7 @@ export function Pricing() {
     },
     {
       key: "mastering",
-      price: "€100",
+      price: "€99",
       features: [t("tier_mastering_f1"), t("tier_mastering_f2"), t("tier_mastering_f3")],
       notes: [t("tier_mastering_note")],
       ctaHref: "/mastering",
@@ -39,19 +39,12 @@ export function Pricing() {
 
   const packageTiers: Tier[] = [
     { key: "basic", price: "€20", unit: "/hr", features: [t("tier_basic_f1"), t("tier_basic_f2")] },
-    { key: "standard", price: "€129.99", features: [t("tier_standard_f1"), t("tier_standard_f2")] },
     {
       key: "onestop",
-      price: "€149.99",
+      price: "€199",
       featured: true,
       features: [t("tier_onestop_f1"), t("tier_onestop_f2"), t("tier_onestop_f3")],
       notes: [t("tier_onestop_note")],
-    },
-    {
-      key: "ep",
-      price: "€599",
-      features: [t("tier_ep_f1"), t("tier_ep_f2")],
-      notes: [t("tier_note_songs"), t("tier_ep_note")],
     },
     {
       key: "custom",
@@ -146,7 +139,7 @@ export function Pricing() {
             {t("pricing_section_packages")}
           </span>
         </Reveal>
-        <div className="no-scrollbar mt-5 -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 pt-4 sm:mx-0 sm:px-0 lg:grid lg:grid-cols-5 lg:overflow-visible lg:pb-0 lg:pt-0">
+        <div className="no-scrollbar mt-5 -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 pt-4 sm:mx-0 sm:px-0 lg:grid lg:mx-auto lg:max-w-4xl lg:grid-cols-3 lg:overflow-visible lg:pb-0 lg:pt-0">
           {packageTiers.map((tier, i) => renderTier(tier, i))}
         </div>
 

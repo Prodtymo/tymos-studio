@@ -82,7 +82,7 @@ export function Footer() {
             </h4>
             <div className="mt-3 flex gap-3">
               <a
-                href="https://www.instagram.com/prodtymo/"
+                href="https://www.instagram.com/tymostudio/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"

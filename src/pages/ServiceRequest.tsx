@@ -2,7 +2,8 @@ import { useEffect, useState, type FormEvent } from "react";
 import { Link } from "react-router-dom";
 import { CheckCircle2, AlertCircle } from "lucide-react";
 import { useT, type Lang } from "../lib/i18n";
-import { PageHeader } from "../components/PageHeader";
+import { Nav } from "../components/Nav";
+import { Footer } from "../components/Footer";
 import { cn } from "../lib/utils";
 
 type Service = "mixing" | "mastering";
@@ -245,7 +246,7 @@ export function ServiceRequest({ service }: { service: Service }) {
 
   return (
     <div className="min-h-screen bg-bg text-ink">
-      <PageHeader />
+      <Nav />
 
       <main className="mx-auto max-w-2xl px-5 pb-24 pt-32 sm:px-8">
         <span className="inline-block rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-accent-soft">
@@ -384,6 +385,8 @@ export function ServiceRequest({ service }: { service: Service }) {
           </Link>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }
