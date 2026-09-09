@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Reveal } from "./Reveal";
 import { useT } from "../lib/i18n";
 
@@ -25,6 +26,13 @@ export function About() {
               </span>
             ))}
           </div>
+
+          <Link
+            to="/gear"
+            className="mt-5 inline-flex items-center text-[13px] font-medium text-accent-soft transition-opacity duration-200 hover:opacity-80"
+          >
+            {t("about_gear_link")}
+          </Link>
         </Reveal>
 
         <Reveal delay={0.1}>

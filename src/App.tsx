@@ -6,6 +6,7 @@ import { Privacy } from "./pages/Privacy";
 import { Welcome } from "./pages/Welcome";
 import { Mixing } from "./pages/Mixing";
 import { Mastering } from "./pages/Mastering";
+import { Gear } from "./pages/Gear";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/welcome" element={<Welcome />} />
             <Route path="/mixing" element={<Mixing />} />
             <Route path="/mastering" element={<Mastering />} />
+            <Route path="/gear" element={<Gear />} />
           </Routes>
         </div>
       </BrowserRouter>

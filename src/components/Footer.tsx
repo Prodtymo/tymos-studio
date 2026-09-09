@@ -109,9 +109,14 @@ export function Footer() {
           <span>
             © {new Date().getFullYear()} Tymo's Studio. {t("footer_rights")}
           </span>
-          <Link to="/privacy" className="text-ink-faint transition-colors duration-200 hover:text-accent-soft">
-            {t("footer_privacy")}
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link to="/gear" className="text-ink-faint transition-colors duration-200 hover:text-accent-soft">
+              {t("footer_gear")}
+            </Link>
+            <Link to="/privacy" className="text-ink-faint transition-colors duration-200 hover:text-accent-soft">
+              {t("footer_privacy")}
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
