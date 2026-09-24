@@ -1,0 +1,44 @@
+{
+  "/": [
+    "Nahrávanie, mix a mastering v Štefanove",
+    "Recording, mixing & mastering in Štefanov",
+    "Nahrávanie v Štefanove, mix a mastering na diaľku. Vypočuj si moju prácu, pozri cenník a vyber si session.",
+    "Recording in Štefanov, remote mixing and mastering. Hear my work, explore prices and book your session."
+  ],
+  "/one-stop": [
+    "One-Stop balíček",
+    "One-Stop package",
+    "2 hodiny v štúdiu, mix, mastering a WAV licencia na beat za 199 €. Dohodni si session.",
+    "Two studio hours, mixing, mastering and a WAV beat license for €199. Request your session."
+  ],
+  "/mixing": [
+    "Mixing na diaľku",
+    "Remote mixing",
+    "Pošli nahrávku na mix. Dve kolá revízií v cene, odpoveď zvyčajne do 24 hodín.",
+    "Send your recording for mixing. Two revision rounds included, with a reply usually within 24 hours."
+  ],
+  "/mastering": [
+    "Mastering na diaľku",
+    "Remote mastering",
+    "Finálne spracovanie tvojho mixu. Dve kolá revízií v cene, odpoveď zvyčajne do 24 hodín.",
+    "The finishing stage for your mix. Two revision rounds included, with a reply usually within 24 hours."
+  ],
+  "/gear": [
+    "Vybavenie štúdia",
+    "Studio equipment",
+    "Mikrofóny, monitoring, nástroje a softvér v Tymo’s Studio.",
+    "Microphones, monitoring, instruments and software at Tymo’s Studio."
+  ],
+  "/privacy": [
+    "Ochrana osobných údajov",
+    "Privacy policy",
+    "Ako spracúvam rezervácie a požiadavky na mix a mastering.",
+    "How I handle bookings and mixing and mastering inquiries."
+  ],
+  "/welcome": [
+    "Vitaj v štúdiu",
+    "Welcome to the studio",
+    "Tymo’s Studio v Štefanove.",
+    "Tymo’s Studio in Štefanov."
+  ]
+}

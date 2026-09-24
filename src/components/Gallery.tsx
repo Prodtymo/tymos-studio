@@ -19,7 +19,7 @@ const PHOTOS = [
 ];
 
 export function Gallery() {
-  const { t } = useT();
+  const { t, lang } = useT();
   const trackRef = useRef<HTMLDivElement>(null);
 
   const scrollByCards = (dir: 1 | -1) => {
@@ -43,7 +43,7 @@ export function Gallery() {
           <div className="hidden gap-2 sm:flex">
             <button
               type="button"
-              aria-label="Previous"
+              aria-label={lang === "sk" ? "Predošlá fotografia" : "Previous photo"}
               onClick={() => scrollByCards(-1)}
               className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-ink transition-colors duration-200 hover:border-border-strong hover:bg-white/5"
             >
@@ -51,7 +51,7 @@ export function Gallery() {
             </button>
             <button
               type="button"
-              aria-label="Next"
+              aria-label={lang === "sk" ? "Ďalšia fotografia" : "Next photo"}
               onClick={() => scrollByCards(1)}
               className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-ink transition-colors duration-200 hover:border-border-strong hover:bg-white/5"
             >
@@ -75,7 +75,7 @@ export function Gallery() {
               className="relative aspect-[3/4] w-[62vw] shrink-0 snap-center overflow-hidden rounded-2xl border border-border bg-surface sm:w-[34vw] md:w-[24vw] lg:w-[19vw]"
             >
               <img
-                src={`/images/gallery/${p}.jpg`}
+                src={`/images/gallery/${p}.webp`}
                 alt={
                   p.startsWith("atmosphere")
                     ? `Inside Tymo's Studio, photo ${i + 1}`

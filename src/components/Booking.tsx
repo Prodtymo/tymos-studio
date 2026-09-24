@@ -1,19 +1,19 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Reveal } from "./Reveal";
 import { useT } from "../lib/i18n";
 
-declare global {
-  interface Window {
-    Cal?: any;
-  }
-}
-
+declare global { interface Window { Cal?: any } }
+let embedInstance = 0;
 export function Booking() {
   const { t, lang } = useT();
-  const namespace = lang === "sk" ? "studio-recording-session" : "recording-session";
-  const selector = `#my-cal-inline-${namespace}`;
-
+  const event = lang === "sk" ? "studio-recording-session" : "recording-session";
+  const selector = `#booking-calendar-${lang}`;
   useEffect(() => {
+    const el = document.querySelector(selector);
+    if (!el || el.getAttribute("data-initialized") === "true") return;
+    el.setAttribute("data-initialized", "true");
+    const namespace = `${event}-${++embedInstance}`;
     (function (C: any, A: string, L: string) {
       let p = function (a: any, ar: any) {
         a.q.push(ar);
@@ -51,13 +51,11 @@ export function Booking() {
 
     window.Cal("init", namespace, { origin: "https://app.cal.com" });
 
-    const el = document.querySelector(selector);
-    if (el) el.innerHTML = "";
 
     window.Cal.ns[namespace]("inline", {
       elementOrSelector: selector,
       config: { layout: "month_view", theme: "dark" },
-      calLink: `prodtymo/${namespace}`,
+      calLink: `prodtymo/${event}`,
     });
 
     // Read the live --color-accent token instead of duplicating its hex
@@ -72,26 +70,25 @@ export function Booking() {
       layout: "month_view",
       useSlotsViewOnSmallScreen: true,
     });
-  }, [lang, namespace, selector]);
+  }, [event, selector]);
 
   return (
-    <section id="booking" className="border-t border-border py-24 sm:py-32">
-      <div className="mx-auto max-w-4xl px-5 sm:px-8">
+    <section id="booking" className="border-t border-border py-20 sm:py-24">
+      <div className="mx-auto max-w-5xl px-5 sm:px-8">
         <Reveal className="mx-auto max-w-xl text-center">
-          <h2 className="font-display text-balance text-3xl font-bold tracking-tight text-ink sm:text-[2.75rem]">
-            {t("booking_title")}
-          </h2>
-          <p className="mt-4 text-[15px] leading-relaxed text-ink-dim">{t("booking_desc")}</p>
+          <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-[2.75rem]">{t("booking_title")}</h2>
+          <p className="mt-4 text-base leading-relaxed text-ink-dim">{t("booking_desc")}</p>
         </Reveal>
+        <p className="mt-6 text-center text-sm text-ink-dim">
+          {lang === "sk" ? "Chceš celý balíček s mixom, masterom a beatom? " : "Want the full package with a mix, master and beat? "}
+          <Link to="/one-stop" className="text-accent-soft underline">One-Stop · €199</Link>
+        </p>
+        <p className="mt-5 text-center text-sm text-ink-dim">
+          {lang === "sk" ? "Kalendár sa nenačítal? " : "Calendar not loading? "}
+          <a href={`https://cal.com/prodtymo/${event}`} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center text-accent-soft underline">{lang === "sk" ? "Otvoriť rezerváciu v novom okne" : "Open booking in a new window"}</a>
+        </p>
+        <div key={lang} id={`booking-calendar-${lang}`} className="mt-10 min-h-[720px] w-full overflow-hidden rounded-2xl border border-border bg-surface" />
 
-        <Reveal delay={0.08}>
-          <div
-            key={lang}
-            id={`my-cal-inline-${namespace}`}
-            className="mt-12 w-full overflow-hidden rounded-2xl border border-border bg-surface/60"
-            style={{ width: "100%", minHeight: "600px" }}
-          />
-        </Reveal>
       </div>
     </section>
   );

@@ -139,6 +139,8 @@
     cursor: not-allowed;
   }
 
+  textarea:focus-visible,
+  select:focus-visible,
   a:focus-visible,
   button:focus-visible,
   input:focus-visible,
@@ -183,3 +185,7 @@
     scroll-behavior: auto !important;
   }
 }
+
+section[id], footer[id] { scroll-margin-top: 5rem; }
+.skip-link { position: fixed; top: 8px; left: 8px; z-index: 100; transform: translateY(-200%); padding: 12px 20px; background: #f5f5f7; color: #08080b; border-radius: 8px; }
+.skip-link:focus { transform: translateY(0); }

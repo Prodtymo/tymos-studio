@@ -19,7 +19,7 @@ export function Faq() {
         </Reveal>
 
         <Reveal delay={0.08} className="mt-12 divide-y divide-border overflow-hidden rounded-2xl border border-border bg-surface/60">
-          {[1, 2, 3, 4, 5].map((n) => (
+          {[1, 2, 3, 4, 5, 6].map((n) => (
             <details key={n} className="group px-5 py-4 sm:px-6">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-[15px] font-medium text-ink [&::-webkit-details-marker]:hidden">
                 {t(`faq_q${n}`)}

@@ -7,17 +7,17 @@ export function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="home" className="relative flex min-h-[100svh] items-end overflow-hidden pb-20 pt-32 sm:items-center sm:pb-0">
+    <section id="home" className="relative flex min-h-[85svh] items-center overflow-hidden pb-20 pt-32 sm:items-center sm:pb-20">
       <div className="absolute inset-0 z-0">
         <img
-          src="/images/hero/studio-wide.jpg"
+          src="/images/hero/studio-wide.webp"
           alt="Tymo's Studio recording room with acoustic panels and ambient purple lighting"
           className="h-full w-full object-cover"
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/70 to-bg/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/45 to-bg/20" />
         <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/50 to-transparent" />
-        <div className="absolute inset-0 bg-bg/25" />
+        <div className="absolute inset-0 bg-bg/10" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-8">
@@ -31,6 +31,7 @@ export function Hero() {
             {t("hero_badge")}
           </span>
 
+          <p className="mt-5 text-sm text-ink-dim">{t("hero_location")}</p>
           <h1 className="font-display text-balance mt-6 text-[13vw] font-bold leading-[0.98] tracking-[-0.03em] text-ink sm:text-6xl md:text-7xl">
             {t("hero_title_1_lead")} <span className="text-accent-soft">{t("hero_title_1_accent")}</span>
             <br />
@@ -50,10 +51,10 @@ export function Hero() {
               <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
             </a>
             <a
-              href="#pricing"
+              href="#music"
               className="rounded-full border border-border-strong px-6 py-3.5 text-[15px] font-medium text-ink transition-colors duration-200 hover:bg-white/5"
             >
-              {t("hero_cta_pricing")}
+              {t("hero_cta_listen")}
             </a>
           </div>
         </motion.div>

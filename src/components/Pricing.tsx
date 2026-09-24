@@ -16,19 +16,19 @@ type Tier = {
 const ONESTOP_ITEMS = ["session", "mix", "master", "beat"] as const;
 const ONESTOP_ITEM_PRICES: Record<(typeof ONESTOP_ITEMS)[number], string> = {
   session: "€40",
-  mix: "€100",
-  master: "€100",
+  mix: "€99",
+  master: "€99",
   beat: "€50",
 };
-const ONESTOP_VALUE = "€290";
+const ONESTOP_VALUE = "€288";
 const ONESTOP_PRICE = "€199";
-const ONESTOP_SAVINGS = "€91";
+const ONESTOP_SAVINGS = "€89";
 
 export function Pricing() {
   const { t } = useT();
 
   const tiers: Tier[] = [
-    { key: "basic", price: "€20", unit: "/hr", features: [t("tier_basic_f1"), t("tier_basic_f2")] },
+    { key: "basic", price: "€20", unit: "/h", features: [t("tier_basic_f1"), t("tier_basic_f2"), t("tier_basic_f3")], notes: [t("tier_basic_note")] },
     {
       key: "mixing",
       price: "€99",
@@ -62,7 +62,7 @@ export function Pricing() {
     <Reveal
       key={tier.key}
       delay={i * 0.05}
-      className="w-[78%] shrink-0 snap-center sm:w-[46%] md:w-[30%] lg:w-auto lg:shrink"
+      className="w-full"
     >
       <div className="flex h-full flex-col rounded-2xl border border-border bg-surface p-6 transition-[transform,border-color] duration-200 hover:-translate-y-1 hover:border-border-strong">
         <div className="min-h-[3.75rem]">
@@ -114,7 +114,7 @@ export function Pricing() {
           <p className="mt-4 text-[15px] leading-relaxed text-ink-dim">{t("pricing_desc")}</p>
         </Reveal>
 
-        <div className="no-scrollbar mt-14 -mx-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-4 pt-4 sm:mx-0 sm:px-0 lg:grid lg:mx-auto lg:max-w-4xl lg:grid-cols-3 lg:overflow-visible lg:pb-0 lg:pt-0">
+        <div className="mx-auto mt-12 grid max-w-4xl gap-5 md:grid-cols-3">
           {tiers.map((tier, i) => renderTier(tier, i))}
         </div>
 
@@ -156,12 +156,12 @@ export function Pricing() {
                   <p className="mt-1 text-[12px] text-ink-faint">{t("onestop_price_label")}</p>
                 </div>
 
-                <a
-                  href="#booking"
+                <Link
+                  to="/one-stop"
                   className="w-full rounded-full bg-accent-2 px-6 py-3 text-center text-[14px] font-semibold text-white transition-transform duration-200 active:scale-[0.97] sm:w-auto"
                 >
-                  {t("pricing_book")} {t("tier_onestop_name")}
-                </a>
+                  {t("onestop_request")}
+                </Link>
               </div>
             </div>
           </div>

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Wifi } from "lucide-react";
 import { useT, type Lang } from "../lib/i18n";
@@ -58,9 +57,6 @@ export function Welcome() {
   const { lang } = useT();
   const c = content[lang];
 
-  useEffect(() => {
-    document.title = c.docTitle;
-  }, [c.docTitle]);
 
   return (
     <div className="min-h-screen bg-bg text-ink">

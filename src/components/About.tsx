@@ -38,7 +38,7 @@ export function About() {
         <Reveal delay={0.1}>
           <div className="relative overflow-hidden rounded-2xl border border-border">
             <img
-              src="/images/about/desk-setup.jpg"
+              src="/images/about/desk-setup.webp"
               alt="Studio production desk with monitors, MIDI controller, and Universal Audio interface"
               className="aspect-[4/5] w-full object-cover sm:aspect-[4/3]"
               loading="lazy"

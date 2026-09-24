@@ -8,7 +8,6 @@ const GOOGLE_REVIEW_URL = "https://g.page/r/CR-OathU8KHLEAE/review";
 type Testimonial = {
   name: string;
   rating: number;
-  relative: Record<Lang, string>;
   quote: Record<Lang, string>;
 };
 
@@ -16,43 +15,36 @@ const TESTIMONIALS: Testimonial[] = [
   {
     name: "Marek Baňárek",
     rating: 5,
-    relative: { sk: "pred 48 minútami", en: "48 minutes ago" },
     quote: { sk: "Bombasticky, chalani boli pohodoví, veľmi sa mi tam páčilo, moc odporúčam.", en: "Awesome vibe, the guys were super chill, I loved it there — highly recommend." },
   },
   {
     name: "Klara Zakova",
     rating: 5,
-    relative: { sk: "pred 24 minútami", en: "24 minutes ago" },
     quote: { sk: "Príjemné prostredie a naozaj skvelý prístup, odporúčam aj bez skúseností s nahrávaním.", en: "Pleasant space and a genuinely great approach — I'd recommend it even without recording experience." },
   },
   {
     name: "jayden tii",
     rating: 5,
-    relative: { sk: "pred 21 hodinami", en: "21 hours ago" },
     quote: { sk: "Veľmi profesionálny prístup", en: "Very professional approach" },
   },
   {
     name: "Adrián Chudý",
     rating: 5,
-    relative: { sk: "pred dňom", en: "a day ago" },
     quote: { sk: "Profesionálny prístup, útulné prostredie", en: "Professional approach, cozy environment" },
   },
   {
     name: "Jaroslav Šubika",
     rating: 5,
-    relative: { sk: "pred 3 dňami", en: "3 days ago" },
     quote: { sk: "Príjemné prostredie, skvelá spolupráca", en: "Pleasant environment, great collaboration" },
   },
   {
     name: "Matej Drinka",
     rating: 5,
-    relative: { sk: "pred 2 týždňami", en: "2 weeks ago" },
     quote: { sk: "Sak moje tracky o tom svedčia", en: "My tracks speak for themselves" },
   },
   {
     name: "Damian",
     rating: 5,
-    relative: { sk: "pred 19 hodinami", en: "19 hours ago" },
     quote: {
       sk: "Strašný zvuk 🙏 kapitánstvo úplne pri nahrávaní, stále fresh veci, nové spôsoby recordu jeden od druhého, nápady strieľajú jak rotačák, energia tam srší jak v universe. 🪬",
       en: "Insane sound 🙏 total command of the room while recording, always fresh stuff, new ways of recording one after another, ideas shooting out like a pinwheel — the energy in there sparks like the universe. 🪬",
@@ -111,7 +103,7 @@ export function Reviews() {
           <div className="hidden justify-end gap-2 pb-4 sm:flex">
             <button
               type="button"
-              aria-label="Previous review"
+              aria-label={lang === "sk" ? "Predošlá recenzia" : "Previous review"}
               onClick={() => scrollToIndex(index - 1)}
               disabled={index === 0}
               className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-ink transition-colors duration-200 hover:border-border-strong hover:bg-white/5 disabled:opacity-30"
@@ -120,7 +112,7 @@ export function Reviews() {
             </button>
             <button
               type="button"
-              aria-label="Next review"
+              aria-label={lang === "sk" ? "Ďalšia recenzia" : "Next review"}
               onClick={() => scrollToIndex(index + 1)}
               disabled={index >= TESTIMONIALS.length - 1}
               className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-ink transition-colors duration-200 hover:border-border-strong hover:bg-white/5 disabled:opacity-30"
@@ -154,7 +146,7 @@ export function Reviews() {
                 </blockquote>
                 <figcaption className="mt-6 flex items-center justify-between border-t border-border pt-4 text-[13px]">
                   <span className="font-medium text-ink">{r.name}</span>
-                  <span className="text-[11px] text-ink-faint">{r.relative[lang]}</span>
+
                 </figcaption>
               </figure>
             ))}
@@ -165,10 +157,11 @@ export function Reviews() {
               <button
                 key={i}
                 type="button"
-                aria-label={`Go to review ${i + 1}`}
+                aria-label={`${lang === "sk" ? "Recenzia" : "Review"} ${i + 1}`}
+                aria-current={i === index ? "true" : undefined}
                 onClick={() => scrollToIndex(i)}
-                className={`h-1.5 rounded-full transition-all duration-200 ${
-                  i === index ? "w-6 bg-accent" : "w-1.5 bg-border hover:bg-border-strong"
+                className={`h-6 rounded-full transition-all duration-200 ${
+                  i === index ? "w-6 bg-accent" : "w-6 bg-border hover:bg-border-strong"
                 }`}
               />
             ))}

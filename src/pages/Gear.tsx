@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   ArrowLeft,
@@ -66,15 +65,12 @@ export function Gear() {
   const { t, lang } = useT();
   const c = pageContent[lang];
 
-  useEffect(() => {
-    document.title = c.docTitle;
-  }, [c.docTitle]);
 
   return (
     <div className="min-h-screen bg-bg text-ink">
       <Nav />
 
-      <main className="mx-auto max-w-6xl px-5 pb-24 pt-32 sm:px-8">
+      <main id="main-content" tabIndex={-1} className="mx-auto max-w-6xl px-5 pb-24 pt-32 sm:px-8">
         <div className="grid gap-12 md:grid-cols-2 md:items-center md:gap-16">
           <Reveal>
             <span className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-accent-soft">
@@ -89,7 +85,7 @@ export function Gear() {
           <Reveal delay={0.1}>
             <div className="relative overflow-hidden rounded-2xl border border-border">
               <img
-                src="/images/detail/apollo-interface.jpg"
+                src="/images/detail/apollo-interface.webp"
                 alt="Universal Audio Apollo interface in Tymo's Studio"
                 className="aspect-[4/3] w-full object-cover"
                 loading="lazy"

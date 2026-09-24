@@ -7,7 +7,7 @@ const STORAGE_KEY = "tymo_lang";
 
 export const translations: Record<Lang, Dict> = {
   sk: {
-    nav_home: "Domov",
+    nav_home: "Štúdio",
     nav_about: "O štúdiu",
     nav_pricing: "Cenník",
     nav_music: "Hudba",
@@ -16,11 +16,13 @@ export const translations: Record<Lang, Dict> = {
     nav_contact: "Kontakt",
     nav_book: "Rezervovať",
 
+    hero_location: "Štefanov, Slovensko · Mix a mastering na diaľku",
+    hero_cta_listen: "Vypočuť moju prácu",
     hero_badge: "Nahrávanie · Mixáž · Mastering",
     hero_title_1_lead: "Tvoj",
     hero_title_1_accent: "zvuk,",
     hero_title_2: "taký, aký má byť.",
-    hero_desc: "Nahrávanie, mix a mastering pod jednou strechou — aby tvoj track napokon znel presne tak, ako si ho počul v hlave, pripravený na rádio aj na playlisty.",
+    hero_desc: "Nahraj vokály v Štefanove alebo mi pošli svoj track na mix a mastering. Od prvého takeu po finálny zvuk pracuješ priamo so mnou.",
     hero_cta_book: "Rezervovať session",
     hero_cta_pricing: "Pozrieť cenník",
     hero_stat_1_num: "100+",
@@ -40,9 +42,9 @@ export const translations: Record<Lang, Dict> = {
     problem_cost3_title: "Stratený čas aj energia",
     problem_cost3_desc: "Ďalšie hodiny v pluginoch neopravia problém, ktorý vznikol už pri nahrávaní.",
 
-    about_title: "Miestnosť naladená na tvoj zvuk.",
-    about_p1: "Tymo's Studio je miesto pre umelcov, ktorým nie je jedno, ako znejú. Každá session má jasný cieľ, od prvého takeu až po finálny master, aby track, ktorý si odnesieš, bol naozaj pripravený ísť von medzi ľudí.",
-    about_p2: "Vokály ti idú cez profesionálny analógovo-modelovaný hardware, presne taký, aký používajú špičkové štúdiá po celom svete, takže na konci dostaneš čistý zvuk, pripravený aj pre rádio.",
+    about_title: "Tvoj track. Spolu pri jednom stole.",
+    about_p1: "Som Tymo. V tomto štúdiu nahrávam vokály, tvorím beaty a pracujem na mixe a masteringu. Spolu prejdeme tvoje referencie a doladíme zvuk tak, aby sedel tvojej skladbe.",
+    about_p2: "Nahrávaš cez Neumann TLM 102 a Universal Audio Apollo v akusticky ošetrenej miestnosti. Máš vlastný beat? Prines ho. Ak nie, môžeš si vybrať z môjho katalógu.",
     about_tag_1: "Universal Audio Apollo",
     about_tag_2: "Analógovo-modelovaný signal chain",
     about_tag_3: "Akusticky ošetrená miestnosť",
@@ -65,7 +67,7 @@ export const translations: Record<Lang, Dict> = {
     solution_f6_desc: "Vypočuj si skutočné tracky nahraté, mixnuté a masterované tu, predtým než sa rozhodneš.",
 
     gallery_title: "Vnútri miestnosti.",
-    gallery_desc: "Skutočné sessiony, skutoční umelci, skutočný priestor. Bez stock fotiek.",
+    gallery_desc: "Pozri si priestor, techniku a momenty zo session.",
 
     music_title: "Hudba nahraná tu.",
     music_desc: "Zopár skladieb nahraných, mixnutých a masterovaných v Tymo's Studio.",
@@ -80,7 +82,7 @@ export const translations: Record<Lang, Dict> = {
     pricing_popular: "Najvýhodnejšie",
     pricing_book: "Rezervovať",
     pricing_policy_1: "Každá skladba má v cene 2 kolá revízií, ďalšie si vieš kedykoľvek dokúpiť.",
-    pricing_policy_2: "Pri One-Stop balíčku platíš 50 % zálohu pri rezervácii, zvyšok pri finálnom dodaní mixu a masteru.",
+    pricing_policy_2: "One-Stop: 99,50 € záloha po dohode o termíne, 99,50 € pri dodaní finálnych súborov.",
 
     tier_mixing_name: "Mixing",
     tier_mixing_tag: "Mix na diaľku",
@@ -98,6 +100,9 @@ export const translations: Record<Lang, Dict> = {
     tier_mastering_note: "50 % záloha pri objednávke, zvyšok po odovzdaní.",
     tier_mastering_cta: "Objednať",
 
+    tier_basic_f3: "Logic projekt a suché stopy na požiadanie",
+    tier_basic_note: "Platba po session.",
+    onestop_request: "Dohodnúť One-Stop",
     tier_basic_name: "Štúdiový čas",
     tier_basic_tag: "Hodinová session",
     tier_basic_f1: "Štúdiový čas",
@@ -120,27 +125,27 @@ export const translations: Record<Lang, Dict> = {
     tier_custom_f1: "Väčšie projekty alebo špeciálne požiadavky",
     tier_custom_cta: "Napísať",
 
-    booking_title: "Prestaň čakať. Poď to nahrať poriadne.",
-    booking_desc: "Vyber si termín nižšie. Potvrdenie máš okamžite v e-maile, zálohu platíš až pri rezervácii.",
+    booking_title: "Nájdi si čas na svoj track.",
+    booking_desc: "Rezervuj si hodinovú session za 20 €/h. Platíš po session. Odnesieš si MP3 s rough mixom.",
 
     reviews_title: "Čo hovoria klienti",
     reviews_cta: "Nechaj nám recenziu na Google",
 
     beats_title: "Beaty & vydania",
-    beats_desc: "Tymo si popri tom robí aj vlastné beaty. Mrkni na najnovšie drops, alebo si zapni notifikácie, keď vyjde nový pack.",
+    beats_desc: "Hľadáš beat pre ďalší track? Vypočuj si môj katalóg a vyber si svoj smer.",
     beats_cta: "Prezrieť beaty na BeatStars",
 
     how_kicker: "Ako to funguje",
     how_title: "Jednoduchý proces, žiadne prekvapenia.",
     how_desc: "Od rezervácie po hotový track, presne vieš, čo ťa čaká v každom kroku.",
-    how_step1_title: "Rezervuješ si termín",
-    how_step1_desc: "Vyberieš si čas na štúdiovú session v kalendári, alebo pošleš nahrávku na mix/mastering na diaľku. Trvá to 2 minúty.",
-    how_step2_title: "Potvrdíme si to spolu",
-    how_step2_desc: "Ozvem sa do 24 hodín s potvrdením a všetkými detailmi k platbe pre tvoju konkrétnu službu.",
+    how_step1_title: "Vyber si službu",
+    how_step1_desc: "Hodinovú session si vyberieš v kalendári. Pri One-Stop, mixe alebo masteringu pošli požiadavku cez formulár.",
+    how_step2_title: "Dohodneme detaily",
+    how_step2_desc: "Na požiadavky zvyčajne odpoviem do 24 hodín. Dohodneme rozsah, termín a odovzdanie súborov. Hodinovú session platíš po nahrávaní.",
     how_step3_title: "Ideme na to",
-    how_step3_desc: "Nahrávame naživo v štúdiu, alebo pracujem na diaľku s priebežnými update-mi. 2 kolá revízií máš v cene.",
+    how_step3_desc: "Nahrávame v štúdiu alebo pracujem s tvojimi súbormi na diaľku. Mix a mastering zahŕňajú 2 kolá revízií.",
     how_step4_title: "Dostaneš hotový track",
-    how_step4_desc: "Finálnu verziu dostaneš pripravenú na vydanie, rádio aj playlisty. WAV a stopy na požiadanie.",
+    how_step4_desc: "Po hodinovej session dostaneš MP3 s rough mixom. Logic projekt a suché stopy sú na požiadanie. Pri mixe a masteringu dohodneme formáty a termín podľa projektu.",
 
     faq_kicker: "FAQ",
     faq_title: "Časté otázky",
@@ -150,9 +155,11 @@ export const translations: Record<Lang, Dict> = {
     faq_q2: "Musím si na session niečo priniesť?",
     faq_a2: "Stačíš ty a tvoje texty. Beat môžeš priniesť na USB alebo poslať mailom vopred (ideálne vo WAV alebo 320 MP3). Ak beat nemáš, viem ti ho zohnať. O zvyšok techniky sa postarám ja.",
     faq_q3: "Ako funguje záloha pri One-Stop balíčku?",
-    faq_a3: "Platíš 50 % zálohu pri rezervácii a zvyšok pri finálnom dodaní hotového mixu a masteru.",
+    faq_a3: "Najprv si dohodneme session. Potom zaplatíš zálohu 99,50 € (50 % z ceny 199 €), zvyšných 99,50 € pri dodaní finálnych súborov. Odoslanie požiadavky samo o sebe nepotvrdzuje termín.",
     faq_q4: "Môžem session preložiť, ak mi niečo vypadne?",
     faq_a4: "Jasné, stačí sa ozvať aspoň 24 hodín dopredu a nájdeme nový termín. Pri zrušení na poslednú chvíľu môže záloha prepadnúť, takže napíš čo najskôr.",
+    faq_q6: "Môžem dostať faktúru alebo zaplatiť prevodom?",
+    faq_a6: "Potrebuješ faktúru alebo chceš zaplatiť bankovým prevodom? Daj mi vedieť pred session, aby sme to mohli dohodnúť.",
     faq_q5: "Ako rýchlo odpovedáš na otázky k rezervácii?",
     faq_a5: "Zvyčajne do 24 hodín, väčšinou skôr. Ak je to súrne, napíš na Instagram alebo zavolaj.",
 
@@ -207,7 +214,7 @@ export const translations: Record<Lang, Dict> = {
     gear_item_analog_desc: "Neve, SSL, API, 1176 a Distressor plus FabFilter pre finálny zvuk tvojho tracku.",
   },
   en: {
-    nav_home: "Home",
+    nav_home: "Studio",
     nav_about: "About",
     nav_pricing: "Pricing",
     nav_music: "Music",
@@ -216,11 +223,13 @@ export const translations: Record<Lang, Dict> = {
     nav_contact: "Contact",
     nav_book: "Book",
 
+    hero_location: "Štefanov, Slovakia · Remote mixing & mastering",
+    hero_cta_listen: "Hear my work",
     hero_badge: "Recording · Mixing · Mastering",
     hero_title_1_lead: "Your",
     hero_title_1_accent: "sound,",
     hero_title_2: "finished properly.",
-    hero_desc: "Recording, mixing, and mastering under one roof, so your track finally sounds the way you always heard it in your head, ready for radio and playlists.",
+    hero_desc: "Record your vocals in Štefanov, or send me your track for mixing and mastering. From the first take to the final sound, you work directly with me.",
     hero_cta_book: "Book a Session",
     hero_cta_pricing: "View Pricing",
     hero_stat_1_num: "100+",
@@ -240,9 +249,9 @@ export const translations: Record<Lang, Dict> = {
     problem_cost3_title: "Wasted time and energy",
     problem_cost3_desc: "More hours in plugins won't fix a problem that started at the recording stage.",
 
-    about_title: "A room built around your sound.",
-    about_p1: "Tymo's Studio is a focused recording space for artists who care about the details. Every session is engineered with intent, from the first take to the final master, so your record leaves the room ready to compete.",
-    about_p2: "Your vocals go through professional-grade analog-modeled hardware (the same tools used in top-tier studios worldwide) for a clean, radio-ready sound.",
+    about_title: "Your track. One-to-one.",
+    about_p1: "I’m Tymo. This is where I record vocals, make beats, and work on mixes and masters. We’ll go through your references together and shape a sound that fits your track.",
+    about_p2: "Record through a Neumann TLM 102 and Universal Audio Apollo in an acoustically treated room. Bring your own beat, or choose one from my catalog.",
     about_tag_1: "Universal Audio Apollo",
     about_tag_2: "Analog-modeled signal chain",
     about_tag_3: "Acoustically treated room",
@@ -265,7 +274,7 @@ export const translations: Record<Lang, Dict> = {
     solution_f6_desc: "Listen to real tracks recorded, mixed, and mastered here before you decide.",
 
     gallery_title: "Inside the room.",
-    gallery_desc: "Real sessions, real artists, real space. No stock photos.",
+    gallery_desc: "The room, the equipment, and moments from sessions.",
 
     music_title: "Music made here.",
     music_desc: "A few tracks recorded, mixed, and mastered at Tymo's Studio.",
@@ -280,7 +289,7 @@ export const translations: Record<Lang, Dict> = {
     pricing_popular: "Biggest Value",
     pricing_book: "Book",
     pricing_policy_1: "2 rounds of revisions included per song, with the option to purchase additional revisions.",
-    pricing_policy_2: "For the One-Stop package: 50% deposit to book, remainder due on final delivery of the mix and master.",
+    pricing_policy_2: "One-Stop: €99.50 deposit after agreeing your session, then €99.50 on delivery of the final files.",
 
     tier_mixing_name: "Mixing",
     tier_mixing_tag: "Remote mix",
@@ -298,6 +307,9 @@ export const translations: Record<Lang, Dict> = {
     tier_mastering_note: "50% deposit to order, remainder on delivery.",
     tier_mastering_cta: "Get Started",
 
+    tier_basic_f3: "Logic project and dry stems on request",
+    tier_basic_note: "Pay after your session.",
+    onestop_request: "Request One-Stop",
     tier_basic_name: "Studio Time",
     tier_basic_tag: "Hourly Session",
     tier_basic_f1: "Studio time",
@@ -320,27 +332,27 @@ export const translations: Record<Lang, Dict> = {
     tier_custom_f1: "Bigger projects or special requirements",
     tier_custom_cta: "Get in touch",
 
-    booking_title: "Stop waiting. Let's make it sound right.",
-    booking_desc: "Pick a time below. Confirmation lands in your inbox instantly, and the deposit is only due once you book.",
+    booking_title: "Make time for your next track.",
+    booking_desc: "Book studio time at €20/hour. Pay after your session and leave with a rough-mix MP3.",
 
     reviews_title: "What clients say",
     reviews_cta: "Leave us a review on Google",
 
     beats_title: "Beats & Releases",
-    beats_desc: "Tymo also produces original beats. Check the latest drops or get notified when new packs release.",
+    beats_desc: "Need a beat for your next track? Explore my catalog and find your direction.",
     beats_cta: "Browse Beats on BeatStars",
 
     how_kicker: "How It Works",
     how_title: "A simple process, no surprises.",
     how_desc: "From booking to finished track, you know exactly what to expect at every step.",
-    how_step1_title: "Book your slot",
-    how_step1_desc: "Pick a time for a studio session on the calendar, or send your recording for a remote mix/master. Takes 2 minutes.",
-    how_step2_title: "We confirm it together",
-    how_step2_desc: "I'll get back to you within 24 hours with confirmation and the payment details for your specific service.",
+    how_step1_title: "Choose your service",
+    how_step1_desc: "Choose hourly studio time in the calendar. For One-Stop, mixing or mastering, send a request through the form.",
+    how_step2_title: "Agree the details",
+    how_step2_desc: "I usually reply to requests within 24 hours. We’ll agree the scope, timing and delivery files. Hourly sessions are paid after recording.",
     how_step3_title: "We get to work",
-    how_step3_desc: "We record live in the studio, or I work remotely with progress updates. 2 rounds of revisions are included.",
+    how_step3_desc: "We record in the studio, or I work with your files remotely. Mixing and mastering include two revision rounds.",
     how_step4_title: "You get your finished track",
-    how_step4_desc: "Your final version arrives ready for release, radio, and playlists. Stems and WAV available on request.",
+    how_step4_desc: "After an hourly session, you get a rough-mix MP3. The Logic project and dry stems are available on request. For mixing and mastering, we agree formats and timing for your project.",
 
     faq_kicker: "FAQ",
     faq_title: "Frequently Asked Questions",
@@ -350,9 +362,11 @@ export const translations: Record<Lang, Dict> = {
     faq_q2: "Do I need to bring anything to the session?",
     faq_a2: "Just you and your lyrics. Bring your beat on a USB or email it ahead of time (WAV or 320 MP3 is ideal). Need a beat? I've got you. All the gear is here.",
     faq_q3: "How does the deposit work for the One-Stop package?",
-    faq_a3: "You pay a 50% deposit to book, with the remainder due when the finished mix and master are delivered.",
+    faq_a3: "First we agree your session. Then you pay a €99.50 deposit (50% of €199), with the remaining €99.50 due on delivery of the final files. Sending a request does not itself confirm a slot.",
     faq_q4: "Can I reschedule if something comes up?",
     faq_a4: "Of course, just give me at least 24 hours' notice and we'll find a new slot. Last-minute cancellations may forfeit the deposit, so reach out as early as you can.",
+    faq_q6: "Can I get an invoice or pay by bank transfer?",
+    faq_a6: "Need an invoice or prefer a bank transfer? Let me know before your session so we can arrange it.",
     faq_q5: "How fast do you usually respond to booking questions?",
     faq_a5: "Usually within 24 hours, often sooner. If it's urgent, DM me on Instagram or give me a call.",
 
@@ -412,16 +426,12 @@ type Ctx = { lang: Lang; setLang: (l: Lang) => void; t: (k: string) => string };
 const LangContext = createContext<Ctx | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("sk");
+  const [lang, setLangState] = useState<Lang>(() => {
+    try { return localStorage.getItem(STORAGE_KEY) === "en" ? "en" : "sk"; }
+    catch { return "sk"; }
+  });
 
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY) as Lang | null;
-      if (stored === "sk" || stored === "en") setLangState(stored);
-    } catch {
-      /* noop */
-    }
-  }, []);
+  useEffect(() => { document.documentElement.lang = lang; }, [lang]);
 
   const setLang = (l: Lang) => {
     setLangState(l);

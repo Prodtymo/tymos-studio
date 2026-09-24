@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { useT, type Lang } from "../lib/i18n";
@@ -11,11 +10,19 @@ const content: Record<Lang, Content> = {
   sk: {
     docTitle: "Ochrana osobných údajov | Tymo's Studio",
     title: "Ochrana osobných údajov",
-    updated: "Posledná aktualizácia: 16. augusta 2026",
+    updated: "Posledná aktualizácia: 22. septembra 2026",
     intro:
       "Tymo's Studio (prevádzkovateľ: Timotej Kudoláni) rešpektuje tvoje súkromie. Táto stránka vysvetľuje, aké osobné údaje zbierame, prečo, a ako ich chránime.",
     back: "Späť na hlavnú stránku",
     sections: [
+      {
+        heading: "Požiadavky cez formulár",
+        paragraphs: ["Pri požiadavke na mix, mastering alebo One-Stop spracúvam tvoje meno, e-mail, prípadne telefón, názov projektu, odkaz na súbory a poznámky. Formulár spracuje Cloudflare a požiadavka mi príde do Telegramu. Tieto údaje používam na komunikáciu a prípravu služby."],
+      },
+      {
+        heading: "Prehrávanie hudby",
+        paragraphs: ["Obaly skladieb sa načítavajú zo Spotify. Vložený prehrávač Spotify sa načíta až po tvojom kliknutí; potom sa prehliadač spojí so Spotify a platia jeho pravidlá ochrany súkromia."],
+      },
       {
         heading: "Aké údaje zbierame",
         paragraphs: ["Keď si rezervuješ session cez náš rezervačný systém (Cal.com), zbierame:"],
@@ -67,11 +74,19 @@ const content: Record<Lang, Content> = {
   en: {
     docTitle: "Privacy Policy | Tymo's Studio",
     title: "Privacy Policy",
-    updated: "Last updated: August 16, 2026",
+    updated: "Last updated: September 22, 2026",
     intro:
       "Tymo's Studio (operator: Timotej Kudoláni) respects your privacy. This page explains what personal data we collect, why, and how it's protected.",
     back: "Back to homepage",
     sections: [
+      {
+        heading: "Service request forms",
+        paragraphs: ["For mixing, mastering and One-Stop requests, I process your name, email, optional phone number, project name, file link and notes. Cloudflare processes the form and delivers the request to me through Telegram. I use these details to discuss and prepare your service."],
+      },
+      {
+        heading: "Music playback",
+        paragraphs: ["Cover artwork loads from Spotify. The embedded Spotify player loads only after you click; your browser then connects to Spotify and its privacy practices apply."],
+      },
       {
         heading: "What data we collect",
         paragraphs: ["When you book a session through our booking system (Cal.com), we collect:"],
@@ -118,9 +133,6 @@ export function Privacy() {
   const { lang } = useT();
   const c = content[lang];
 
-  useEffect(() => {
-    document.title = c.docTitle;
-  }, [c.docTitle]);
 
   return (
     <div className="min-h-screen bg-bg text-ink">

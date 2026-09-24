@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useT } from "../lib/i18n";
@@ -23,6 +23,15 @@ export function Nav() {
   const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const close = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { setOpen(false); menuButton.current?.focus(); }
+    };
+    document.addEventListener("keydown", close);
+    return () => document.removeEventListener("keydown", close);
+  }, [open]);
 
   const toHref = (hash: string) => (pathname === "/" || !HOME_ONLY_HASHES.has(hash) ? hash : `/${hash}`);
 
@@ -34,6 +43,8 @@ export function Nav() {
   }, []);
 
   return (
+    <>
+    <a className="skip-link" href="#main-content">{lang === "sk" ? "Preskočiť na obsah" : "Skip to content"}</a>
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300",
@@ -48,7 +59,7 @@ export function Nav() {
           Tymo's <span className="text-accent-soft">Studio</span>
         </a>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-8 lg:flex">
           {LINKS.map((l) => (
             <li key={l.href}>
               <a
@@ -88,9 +99,12 @@ export function Nav() {
 
           <button
             type="button"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-ink md:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-ink lg:hidden"
             onClick={() => setOpen((v) => !v)}
-            aria-label="Menu"
+            ref={menuButton}
+            aria-label={lang === "sk" ? "Navigácia" : "Navigation"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
           >
             {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
           </button>
@@ -98,7 +112,7 @@ export function Nav() {
       </nav>
 
       {open && (
-        <div className="border-t border-border bg-bg/95 px-5 py-5 backdrop-blur-xl md:hidden">
+        <div id="mobile-menu" className="border-t border-border bg-bg/95 px-5 py-5 backdrop-blur-xl lg:hidden">
           <ul className="flex flex-col gap-4">
             {LINKS.map((l) => (
               <li key={l.href}>
@@ -139,5 +153,6 @@ export function Nav() {
         </div>
       )}
     </header>
+    </>
   );
 }
