@@ -4,6 +4,7 @@ import { Reveal } from "./Reveal";
 import { useT } from "../lib/i18n";
 type Track = { title: string; artists: string; tagKey: string; cover: string; link: string };
 const TRACKS: Track[] = [
+  { title: "Mojito", artists: "Maty Drion", tagKey: "music_tag_partially_recorded_mixed_mastered", cover: "/images/music/mojito.jpg", link: "https://open.spotify.com/track/3cvlYnQoSWDS4vK4zaEzDv" },
   { title: "REDFLAG", artists: "DEST1NY", tagKey: "music_tag_recorded_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b2731157d95aac07d6e42d644a43", link: "https://open.spotify.com/track/6FdBU9BAgvxF6s6MmNa8GT" },
   { title: "Skiaphos", artists: "Maty Drion, Klara", tagKey: "music_tag_recorded_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b2734dbf3fa7660fcbd40f812934", link: "https://open.spotify.com/track/3VK2k9v1HL7ANRoTeU0q90" },
   { title: "Valletta", artists: "Maty Drion", tagKey: "music_tag_recorded_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b2734dbf3fa7660fcbd40f812934", link: "https://open.spotify.com/track/1xAAIHUNnC9cVWfBLdnKKM" },
