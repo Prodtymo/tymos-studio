@@ -189,3 +189,55 @@
 section[id], footer[id] { scroll-margin-top: 5rem; }
 .skip-link { position: fixed; top: 8px; left: 8px; z-index: 100; transform: translateY(-200%); padding: 12px 20px; background: #f5f5f7; color: #08080b; border-radius: 8px; }
 .skip-link:focus { transform: translateY(0); }
+
+/* Draft: album artwork lives only inside the opening hero. */
+.cover-backdrop { background: radial-gradient(ellipse at 50% 45%, #24173e 0%, #100d1b 38%, #08080b 75%); perspective: 1000px; }
+.hero-cover { position:absolute; border:1px solid #c3a0ff30; border-radius:14px; padding:5px; background:#17121f; box-shadow:0 24px 70px #0009,0 0 30px #9360ff12; pointer-events:none; }
+.hero-cover img { display:block; width:100%; border-radius:9px; aspect-ratio:1; object-fit:cover; opacity:.85; }
+.hero-cover-shade { position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse at 50% 48%, #08080b85 0%, #08080b55 27%, transparent 56%),linear-gradient(to top,#08080b,transparent 23%,transparent 85%,#08080b50); }
+.hero-orbit { position:absolute; left:50%; top:50%; overflow:visible; pointer-events:none; }
+.hero-orbit-one { width:850px; height:540px; transform:translate(-50%,-50%) rotate(-24deg); }
+.hero-orbit-two { width:1100px; height:680px; transform:translate(-50%,-50%) rotate(24deg); }
+.hero-cover-section > .relative { pointer-events:none; }
+.hero-cover-section a { pointer-events:auto; }
+.section-progress { position:fixed; z-index:35; right:14px; top:100px; bottom:35px; width:170px; display:none; pointer-events:none; }
+.section-ruler { position:absolute; right:0; inset-block:0; width:1px; background:#ffffff12; }
+.section-ruler > span { position:absolute; right:0; width:8px; border-top:1px solid #bca4ff40; font:9px monospace; color:#a59bb3; white-space:nowrap; text-align:right; padding-right:16px; }
+.section-ruler > span:nth-child(5n+1) { width:16px; }
+.section-marker { position:absolute; right:0; width:42px; height:2px; background:#aa7aff; box-shadow:0 0 8px #aa7aff; }
+.section-marker > span { position:absolute; right:0; top:7px; font:10px monospace; color:#c6a7ff; }
+.section-labels { position:absolute; inset:0 58px 0 0; }
+.section-labels a { position:absolute; right:0; color:#d6c8ec; font-size:13px; font-weight:600; letter-spacing:.06em; white-space:nowrap; pointer-events:auto; }
+.section-labels a > span { display:flex; }
+.section-labels a > span > span { display:inline-block; }
+.section-labels a[aria-current] { color:#fff; }
+.section-labels a:hover { color:#bb94ff; }
+@media(min-width:1400px) { .section-progress { display:block; } }
+@media(max-width:767px) {
+  .hero-cover-section { min-height:850px; }
+  .hero-cover { width:110px!important; opacity:.65; }
+  .hero-cover:nth-of-type(n+5) { display:none; }
+  .hero-cover-shade { background:radial-gradient(ellipse at 50% 48%,#08080be6 0%,#08080bb0 35%,transparent 70%),linear-gradient(to top,#08080b,transparent 20%); }
+}
+
+/* Colored streams travel inside the orbit outlines. */
+.orbit-pipe { stroke:#bca4ff24; stroke-width:3; }
+.orbit-liquid { filter:drop-shadow(0 0 5px #a774ff) drop-shadow(0 0 12px #7850dc88); opacity:.75; }
+.orbit-flow { stroke-width:2.5; stroke-linecap:round; stroke-dasharray:16 84; animation:orbit-liquid-flow 36s linear infinite; }
+.orbit-flow-violet { stroke:#ac79ff; }
+.orbit-flow-blue { stroke:#65c9f5; animation-delay:-12s; stroke-dasharray:10 90; }
+.orbit-flow-pink { stroke:#e88edb; animation-delay:-24s; stroke-dasharray:7 93; }
+.hero-orbit-two .orbit-flow { animation-duration:48s; animation-direction:reverse; }
+.hero-orbit-two .orbit-flow-blue { animation-delay:-16s; }
+.hero-orbit-two .orbit-flow-pink { animation-delay:-32s; }
+@keyframes orbit-liquid-flow { to { stroke-dashoffset:-100; } }
+@media(prefers-reduced-motion:reduce) { .orbit-flow { animation:none; } .orbit-flow-blue { stroke-dashoffset:-33; } .orbit-flow-pink { stroke-dashoffset:-66; } }
+@media(max-width:767px) { .orbit-liquid { opacity:.45; } }
+
+.section-ruler-hit { position:absolute; right:-10px; top:0; bottom:0; width:54px; pointer-events:auto; cursor:ns-resize; touch-action:none; z-index:3; }
+.section-ruler-hit:focus-visible { outline:1px solid #bb94ff; outline-offset:4px; }
+.section-drag-window { position:absolute; right:0; width:72px; height:16%; background:#c9b4ff12; border-block:1px solid #dccbff80; opacity:0; transition:opacity .2s; }
+.is-dragging .section-drag-window { opacity:1; }
+.is-dragging .section-marker { width:72px; background:#f1eaff; }
+.section-labels a > span > span { width:10px; flex:0 0 10px; letter-spacing:0; text-align:center; }
+.is-dragging .section-labels a { text-shadow:0 2px 8px #000; }

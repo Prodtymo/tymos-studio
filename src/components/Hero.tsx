@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from "framer-motion";
+import { CoverBackdrop } from "./CoverBackdrop";
 import { ArrowRight } from "lucide-react";
 import { useT } from "../lib/i18n";
 
@@ -7,25 +8,15 @@ export function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="home" className="relative flex min-h-[85svh] items-center overflow-hidden pb-20 pt-32 sm:items-center sm:pb-20">
-      <div className="absolute inset-0 z-0">
-        <img
-          src="/images/hero/studio-wide.webp"
-          alt="Tymo's Studio recording room with acoustic panels and ambient purple lighting"
-          className="h-full w-full object-cover"
-          fetchPriority="high"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/45 to-bg/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/50 to-transparent" />
-        <div className="absolute inset-0 bg-bg/10" />
-      </div>
+    <section id="home" className="relative flex min-h-[92svh] hero-cover-section items-center overflow-hidden pb-20 pt-32 sm:items-center sm:pb-20">
+      <CoverBackdrop />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-5 sm:px-8">
         <motion.div
           initial={reduce ? { opacity: 0 } : { opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", bounce: 0, duration: 0.6, delay: 0.1 }}
-          className="max-w-2xl"
+          className="mx-auto max-w-2xl text-center"
         >
           <span className="font-mono inline-flex items-center rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-[11px] font-medium uppercase tracking-[0.14em] text-accent-soft">
             {t("hero_badge")}
@@ -38,11 +29,11 @@ export function Hero() {
             <span className="text-ink-dim">{t("hero_title_2")}</span>
           </h1>
 
-          <p className="mt-6 max-w-lg text-base leading-relaxed text-ink-dim sm:text-lg">
+          <p className="mx-auto mt-6 max-w-lg text-base leading-relaxed text-ink-dim sm:text-lg">
             {t("hero_desc")}
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-4">
+          <div className="mt-9 flex flex-wrap justify-center items-center gap-4">
             <a
               href="#booking"
               className="group inline-flex items-center gap-2 rounded-full bg-accent-2 px-6 py-3.5 text-[15px] font-semibold text-white shadow-[0_0_0_1px_var(--color-ring-highlight),0_18px_40px_-14px_var(--color-accent-glow)] transition-transform duration-200 active:scale-[0.97]"

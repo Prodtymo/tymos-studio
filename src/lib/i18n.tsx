@@ -72,6 +72,7 @@ export const translations: Record<Lang, Dict> = {
     music_title: "Hudba nahraná tu.",
     music_desc: "Zopár skladieb nahraných, mixnutých a masterovaných v Tymo's Studio.",
     music_tag_recorded_mixed_mastered: "Nahraté + mixnuté + masterované",
+    music_tag_custom_produced: "Produkcia na mieru · Nahrávanie · Mix · Master",
     music_tag_mixed_mastered: "Mixnuté + masterované",
     music_tag_partially_recorded_mixed_mastered: "Čiastočne nahraté + mixnuté + masterované",
 
@@ -280,6 +281,7 @@ export const translations: Record<Lang, Dict> = {
     music_title: "Music made here.",
     music_desc: "A few tracks recorded, mixed, and mastered at Tymo's Studio.",
     music_tag_recorded_mixed_mastered: "Recorded + Mixed + Mastered",
+    music_tag_custom_produced: "Custom produced · Recorded · Mixed · Mastered",
     music_tag_mixed_mastered: "Mixed + Mastered",
     music_tag_partially_recorded_mixed_mastered: "Partially recorded + Mixed + Mastered",
 

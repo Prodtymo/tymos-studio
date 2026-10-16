@@ -1,3 +1,4 @@
+import { SectionProgress } from "../components/SectionProgress";
 import { Nav } from "../components/Nav";
 import { Hero } from "../components/Hero";
 import { StatsBar } from "../components/StatsBar";
@@ -37,6 +38,7 @@ export function Home() {
       </main>
       <Footer />
       <StickyCta />
+      <SectionProgress />
     </>
   );
 }

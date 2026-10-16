@@ -71,7 +71,7 @@ export function Gear() {
       <Nav />
 
       <main id="main-content" tabIndex={-1} className="mx-auto max-w-6xl px-5 pb-24 pt-32 sm:px-8">
-        <div className="grid gap-12 md:grid-cols-2 md:items-center md:gap-16">
+        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-12">
           <Reveal>
             <span className="font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-accent-soft">
               {t("gear_kicker")}
@@ -82,17 +82,29 @@ export function Gear() {
             <p className="mt-6 text-[15px] leading-relaxed text-ink-dim sm:text-base">{t("gear_desc")}</p>
           </Reveal>
 
-          <Reveal delay={0.1}>
-            <div className="relative overflow-hidden rounded-2xl border border-border">
-              <img
-                src="/images/detail/apollo-interface.webp"
-                alt="Universal Audio Apollo interface in Tymo's Studio"
-                className="aspect-[4/3] w-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 ring-1 ring-inset ring-white/[0.06]" />
-            </div>
-          </Reveal>
+          <div className="grid gap-5 sm:grid-cols-2">
+            {[
+              { key: "tlm102", photo: "neumann-portrait.jpg", label: lang === "sk" ? "Vokálny mikrofón" : "Vocal microphone", caption: lang === "sk" ? "Tu sa začína tvoj vokál." : "Where your vocal begins.", alt: "Neumann TLM 102 microphone in Tymo's Studio" },
+              { key: "apollo", photo: "apollo-portrait.jpg", label: lang === "sk" ? "Audio rozhranie" : "Audio interface", caption: lang === "sk" ? "Srdce nahrávacieho setupu." : "At the heart of the recording setup.", alt: "Universal Audio Apollo Solo with handwritten Tymo label at the studio desk" },
+            ].map((item, index) => (
+              <Reveal key={item.key} delay={0.1 + index * 0.08}>
+                <figure className="h-full overflow-hidden rounded-2xl border border-border bg-surface">
+                  <img
+                    src={`/images/detail/${item.photo}`}
+                    alt={item.alt}
+                    width="768"
+                    height="1024"
+                    className="aspect-[3/4] w-full object-cover"
+                  />
+                  <figcaption className="p-5">
+                    <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-accent-soft">{item.label}</p>
+                    <h2 className="mt-2 text-base font-semibold leading-snug">{t(`gear_item_${item.key}_name`)}</h2>
+                    <p className="mt-2 text-xs leading-relaxed text-ink-dim">{item.caption}</p>
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
         </div>
 
         <div className="mt-20 space-y-16">

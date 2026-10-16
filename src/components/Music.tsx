@@ -2,19 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Play, ArrowUpRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { useT } from "../lib/i18n";
-type Track = { title: string; artists: string; tagKey: string; cover: string; link: string };
-const TRACKS: Track[] = [
-  { title: "Mojito", artists: "Maty Drion", tagKey: "music_tag_partially_recorded_mixed_mastered", cover: "/images/music/mojito.jpg", link: "https://open.spotify.com/track/3cvlYnQoSWDS4vK4zaEzDv" },
-  { title: "REDFLAG", artists: "DEST1NY", tagKey: "music_tag_recorded_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b2731157d95aac07d6e42d644a43", link: "https://open.spotify.com/track/6FdBU9BAgvxF6s6MmNa8GT" },
-  { title: "Skiaphos", artists: "Maty Drion, Klara", tagKey: "music_tag_recorded_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b2734dbf3fa7660fcbd40f812934", link: "https://open.spotify.com/track/3VK2k9v1HL7ANRoTeU0q90" },
-  { title: "Valletta", artists: "Maty Drion", tagKey: "music_tag_recorded_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b2734dbf3fa7660fcbd40f812934", link: "https://open.spotify.com/track/1xAAIHUNnC9cVWfBLdnKKM" },
-  { title: "Spinnin", artists: "Maty Drion, RAF ZODIAC, Marzoo", tagKey: "music_tag_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b2734dbf3fa7660fcbd40f812934", link: "https://open.spotify.com/track/2TasCmuuLDggc0QzEw69Ne" },
-  { title: "Som Fajn", artists: "Maty Drion", tagKey: "music_tag_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b2732331f0f34a2ddf09fddaa0fd", link: "https://open.spotify.com/track/03foIU4rnlp9mQdBCTb3sK" },
-  { title: "Som Fajn RMX", artists: "Maty Drion, dayindegenerate", tagKey: "music_tag_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b27345fbbe41678b1b016e67dc63", link: "https://open.spotify.com/track/0N6Rb1NXENsLCAml3k5ZeN" },
-  { title: "LAVIDA", artists: "Maty Drion", tagKey: "music_tag_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b27383ebcb660949f86158dad9f6", link: "https://open.spotify.com/track/0iMr506UWnARkTtln1g2Rq" },
-  { title: "Vienna", artists: "Maty Drion", tagKey: "music_tag_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b2738bf0ebdda8f59d54cb25b822", link: "https://open.spotify.com/track/5862aLbteM9btpkt9XbP1D" },
-  { title: "Nech To Tak", artists: "Maty Drion feat. Miku", tagKey: "music_tag_recorded_mixed_mastered", cover: "https://i.scdn.co/image/ab67616d0000b27365d5d98e6ebb2d34a1bea9c0", link: "https://open.spotify.com/track/7Bm0gWC8PWFergyK4irq7x" },
-];
+import { TRACKS, type Track } from "../lib/tracks";
 
 
 export function Music() {
@@ -59,7 +47,7 @@ export function Music() {
       </div>
       <div ref={slider} id="track-list" role="region" aria-labelledby="music-title" tabIndex={0} onScroll={updateEdges}
         onKeyDown={(event) => { if (event.target !== event.currentTarget) return; if (event.key === "ArrowRight" || event.key === "ArrowLeft") { event.preventDefault(); browse(event.key === "ArrowRight" ? 1 : -1); } }}
-        className="mt-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-5 [scroll-padding-inline:1.25rem] sm:px-8 sm:[scroll-padding-inline:2rem] lg:px-[max(2rem,calc((100vw-72rem)/2+2rem))] lg:[scroll-padding-inline:max(2rem,calc((100vw-72rem)/2+2rem))]">
+        className="no-scrollbar mt-5 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-5 [scroll-padding-inline:1.25rem] sm:px-8 sm:[scroll-padding-inline:2rem]">
         {TRACKS.map((tr, index) => <article key={tr.link} className="flex w-[76vw] max-w-[300px] shrink-0 snap-start flex-col rounded-2xl border border-border bg-surface p-3.5 sm:w-[240px]">
           <div className="relative">
             <img src={tr.cover} alt="" width="300" height="300" loading="lazy" className="aspect-square w-full rounded-xl object-cover" />
