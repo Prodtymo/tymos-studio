@@ -213,11 +213,16 @@ section[id], footer[id] { scroll-margin-top: 5rem; }
 .section-labels a[aria-current] { color:#fff; }
 .section-labels a:hover { color:#bb94ff; }
 @media(min-width:1400px) { .section-progress { display:block; } }
+ .hero-scene { position:absolute; inset:0; }
 @media(max-width:767px) {
-  .hero-cover-section { min-height:850px; }
-  .hero-cover { width:110px!important; opacity:.65; }
-  .hero-cover:nth-of-type(n+5) { display:none; }
-  .hero-cover-shade { background:radial-gradient(ellipse at 50% 48%,#08080be6 0%,#08080bb0 35%,transparent 70%),linear-gradient(to top,#08080b,transparent 20%); }
+  .hero-cover-section { min-height:92svh; padding-top:150px; padding-bottom:110px; }
+  .hero-scene { inset:auto; left:50%; top:50%; width:560px; height:1050px; transform:translate(-50%,-50%) scale(.72); transform-origin:center; }
+  .hero-cover { opacity:.8; }
+  .hero-orbit-one { width:560px; height:900px; }
+  .hero-orbit-two { width:680px; height:1100px; }
+  .hero-cover-shade { background:radial-gradient(ellipse at 50% 47%,#08080bd9 0%,#08080ba6 30%,#08080b26 68%),linear-gradient(to top,#08080b,transparent 20%,transparent 85%,#08080b55); }
+  .hero-cover-section h1 { font-size:clamp(36px,10.5vw,60px); }
+  .hero-cover-section .orbit-liquid { filter:none; opacity:.8; }
 }
 
 /* Colored streams travel inside the orbit outlines. */
@@ -241,3 +246,15 @@ section[id], footer[id] { scroll-margin-top: 5rem; }
 .is-dragging .section-marker { width:72px; background:#f1eaff; }
 .section-labels a > span > span { width:10px; flex:0 0 10px; letter-spacing:0; text-align:center; }
 .is-dragging .section-labels a { text-shadow:0 2px 8px #000; }
+
+/* Keep continuous motion on transform layers and stop it outside the hero. */
+.hero-ring-spin-one { animation:hero-ring-turn 100s linear infinite; }
+.hero-ring-spin-two { animation:hero-ring-turn 140s linear infinite reverse; }
+@keyframes hero-ring-turn { to { transform:rotate(360deg); } }
+.hero-paused .hero-ring-spin, .hero-paused .orbit-flow { animation-play-state:paused; }
+.hero-cover { will-change:transform; backface-visibility:hidden; }
+@media(max-width:767px) {
+  .hero-cover { box-shadow:0 8px 18px #0006; }
+  .hero-scene .orbit-liquid { filter:none; }
+}
+@media(prefers-reduced-motion:reduce) { .hero-ring-spin { animation:none; } }

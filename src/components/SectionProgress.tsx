@@ -15,6 +15,8 @@ export function SectionProgress() {
   useEffect(() => {
     let frame = 0;
     const update = () => {
+      frame = 0;
+      if (!window.matchMedia('(min-width: 1400px)').matches) return;
       const max = document.documentElement.scrollHeight - innerHeight;
       let active = 'home';
       for (const [id] of sections) if ((document.getElementById(id)?.getBoundingClientRect().top ?? Infinity) <= innerHeight * .4) active = id;

@@ -55,7 +55,7 @@ export function Music() {
           </div>
           <h3 className="mt-4 text-lg font-semibold">{tr.title}</h3>
           <p className="mt-1 min-h-10 text-sm text-ink-dim">{tr.artists}</p>
-          <p className="mt-2 min-h-9 text-xs leading-relaxed text-accent-soft">{t(tr.tagKey)}</p>
+          <p className="mt-2 min-h-9 text-xs leading-relaxed text-accent-soft">{tr.tagKey ? t(tr.tagKey) : null}</p>
           <button type="button" onClick={() => setActive(tr)} aria-pressed={active?.link === tr.link} aria-controls="music-player" aria-label={`${lang === "sk" ? "Načítať prehrávač" : "Load player"}: ${tr.title}`} className="mt-4 flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-border-strong text-sm hover:bg-white/5 aria-pressed:border-accent aria-pressed:text-accent-soft"><Play size={16} />{lang === "sk" ? "Vypočuť na stránke" : "Listen here"}</button>
         </article>)}
       </div>

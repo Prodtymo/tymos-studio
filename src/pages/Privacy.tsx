@@ -67,7 +67,7 @@ const content: Record<Lang, Content> = {
       },
       {
         heading: "Kontakt",
-        paragraphs: ["Pre akékoľvek otázky ohľadom ochrany osobných údajov nás kontaktuj na: tymofx@gmail.com"],
+        paragraphs: ["Pre akékoľvek otázky ohľadom ochrany osobných údajov nás kontaktuj na: info@tymostudio.com"],
       },
     ],
   },
@@ -123,7 +123,7 @@ const content: Record<Lang, Content> = {
       },
       {
         heading: "Contact",
-        paragraphs: ["For any questions about privacy or data protection, contact us at: tymofx@gmail.com"],
+        paragraphs: ["For any questions about privacy or data protection, contact us at: info@tymostudio.com"],
       },
     ],
   },
